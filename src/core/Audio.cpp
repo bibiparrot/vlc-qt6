@@ -28,7 +28,8 @@ typedef SSIZE_T ssize_t;
 
 #include <vlc/vlc.h>
 #include <vlc_common.h>
-#include <vlc_variables.h>
+//#include <vlc_common.h>
+//#include <vlc_variables.h>
 
 #include "core/Audio.h"
 #include "core/Error.h"

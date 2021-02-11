@@ -46,6 +46,7 @@ VlcMediaPlayer::VlcMediaPlayer(VlcInstance *instance)
     _vlcVideo = new VlcVideo(this);
 #if LIBVLC_VERSION >= 0x020200
     _vlcEqualizer = new VlcEqualizer(this);
+    _audioDevice = new AudioDevice(this);
 #endif
 
     _videoWidget = 0;
@@ -64,6 +65,7 @@ VlcMediaPlayer::~VlcMediaPlayer()
     delete _vlcVideo;
 #if LIBVLC_VERSION >= 0x020200
     delete _vlcEqualizer;
+    delete _audioDevice;
 #endif
 
     libvlc_media_player_release(_vlcMediaPlayer);
@@ -90,6 +92,10 @@ VlcVideo *VlcMediaPlayer::video() const
 VlcEqualizer *VlcMediaPlayer::equalizer() const
 {
     return _vlcEqualizer;
+}
+AudioDevice *VlcMediaPlayer::audioDevice() const
+{
+    return _audioDevice;
 }
 #endif
 

@@ -1,6 +1,7 @@
 /****************************************************************************
 * VLC-Qt - Qt and libvlc connector library
 * Copyright (C) 2013 Tadej Novak <tadej@tano.si>
+* 2021 Andry <i@andry.io>
 *
 * This library is free software: you can redistribute it and/or modify
 * it under the terms of the GNU Lesser General Public License as published
@@ -18,16 +19,18 @@
 
 #include <QtGlobal>
 
+
+#if QT_VERSION >= 0x060000
+#include <QApplication>
+#include <QHBoxLayout>
+#include <QToolBar>
+#else
 #if QT_VERSION >= 0x050000
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDesktopWidget>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QToolBar>
-#else
-#include <QtGui/QApplication>
-#include <QtGui/QDesktopWidget>
-#include <QtGui/QHBoxLayout>
-#include <QtGui/QToolBar>
+#endif
 #endif
 
 #if defined(Q_WS_X11)

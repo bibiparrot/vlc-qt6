@@ -1,6 +1,7 @@
 #############################################################################
 # VLC-Qt - Qt and libvlc connector library
 # Copyright (C) 2016 Tadej Novak <tadej@tano.si>
+# 2021 Andry <i@andry.io>
 #
 # This library is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as published
@@ -32,11 +33,7 @@ ENDIF()
 ###################
 # List of sources #
 ###################
-# Deprecated C++ source files
-SET(VLCQT_CORE_SRCS_DEPRECATED
-    VideoFrame.cpp
-    VideoMemoryStream.cpp
-)
+
 IF(NOT MSVC)
     SET_SOURCE_FILES_PROPERTIES (${VLCQT_CORE_SRCS_DEPRECATED} PROPERTIES COMPILE_FLAGS -Wno-deprecated)
 ENDIF()
@@ -64,13 +61,6 @@ SET(VLCQT_CORE_SRCS
     VideoStream.cpp
     YUVVideoFrame.cpp
 
-    ${VLCQT_CORE_SRCS_DEPRECATED}
-)
-
-# Deprecated Include files
-SET(VLCQT_CORE_HEADERS_DEPRECATED
-    VideoFrame.h
-    VideoMemoryStream.h
 )
 
 # Define the Include files
@@ -96,8 +86,6 @@ SET(VLCQT_CORE_HEADERS
     VideoStream.h
     YUVVideoFrame.h
 
-    ${VLCQT_CORE_HEADERS_DEPRECATED}
-
     ${CMAKE_BINARY_DIR}/src/Config.h
 )
 
@@ -106,12 +94,13 @@ IF(${LIBVLC_VERSION} EQUAL 0x020200 OR ${LIBVLC_VERSION} GREATER 0x020200)
         ${VLCQT_CORE_SRCS}
 
         Equalizer.cpp
-    )
+            AudioDevice.cpp)
 
     SET(VLCQT_CORE_HEADERS
         ${VLCQT_CORE_HEADERS}
 
         Equalizer.h
+            AudioDevice.h
     )
 ENDIF()
 
@@ -181,9 +170,8 @@ SYMLINK_FRAMEWORK_TEST(${VLCQT_CORE} core ${VLCQT_CORE_NAME})
 
 # Link the required libraries
 IF(QT_VERSION MATCHES 4)
-    TARGET_LINK_LIBRARIES(${VLCQT_CORE} PRIVATE Qt4::QtCore)
 ELSE()
-    TARGET_LINK_LIBRARIES(${VLCQT_CORE} PRIVATE Qt5::Core)
+    TARGET_LINK_LIBRARIES(${VLCQT_CORE} PRIVATE Qt${QT_VERSION_MAJOR}::Core)
 ENDIF()
 IF(NOT STATIC)
     TARGET_LINK_LIBRARIES(${VLCQT_CORE} PRIVATE ${LIBVLC_LIBRARY} ${LIBVLCCORE_LIBRARY})

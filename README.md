@@ -1,3 +1,7 @@
+# VLC-Qt Library - Fork + Update to qt 6
+
+mainteiner of https://github.com/vlc-qt/vlc-qt not support his repo repo
+
 # VLC-Qt Library [![Build Status][travis-img]][travis] [![Build status][appveyor-img]][appveyor]
 [![Homepage][web-img]][web]
 [![Latest release][release-img]][release]
@@ -15,9 +19,8 @@ in cross-platform spirit so it may work on other systems but is not supported.
 ## VLC-Qt 1.1 Qt/VLC versions deprecation warning
 **Since 1.1 release, support for some older Qt and VLC versions will be removed
 or deprecated:**
- - Qt 4 support will be deprecated and removed in 2.0
- - Qt 5 lower than 5.5 will be deprecated and removed in 2.0
- - libVLC 2.1 will be required
+ - Qt 5 lower than 5.5 will not work and removed
+ - libVLC 3.0 > will be required
 
 ## Binaries and source code
 You can download VLC-Qt binaries and sources from the
@@ -57,6 +60,8 @@ There are several ways to contribute to VLC-Qt:
 
 ## Copyright info
 Copyright (C) 2010-2016 Tadej Novak
+
+Copyright (C) 2021 Andry ski <i@andry.io>
 
 VLC-Qt is free (libre) software. This means that the library
 source code is available to public, anyone is welcome to research

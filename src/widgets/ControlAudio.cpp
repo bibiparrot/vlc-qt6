@@ -1,6 +1,7 @@
 /****************************************************************************
 * VLC-Qt - Qt and libvlc connector library
 * Copyright (C) 2013 Tadej Novak <tadej@tano.si>
+* 2021 Andry <i@andry.io>
 *
 * This library is free software: you can redistribute it and/or modify
 * it under the terms of the GNU Lesser General Public License as published
@@ -18,10 +19,12 @@
 
 #include <QtCore/QTimer>
 
+#if QT_VERSION >= 0x060000
+#include <QAction>
+#else
 #if QT_VERSION >= 0x050000
 #include <QtWidgets/QAction>
-#else
-#include <QtGui/QAction>
+#endif
 #endif
 
 #include "core/Audio.h"

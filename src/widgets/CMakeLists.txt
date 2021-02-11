@@ -1,6 +1,7 @@
 #############################################################################
 # VLC-Qt - Qt and libvlc connector library
 # Copyright (C) 2016 Tadej Novak <tadej@tano.si>
+# 2021 Andry <i@andry.io>
 #
 # This library is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as published
@@ -94,9 +95,9 @@ SYMLINK_FRAMEWORK_TEST(${VLCQT_WIDGETS} widgets ${VLCQT_WIDGETS_NAME})
 
 # Link the required libraries
 IF(QT_VERSION MATCHES 4)
-    TARGET_LINK_LIBRARIES(${VLCQT_WIDGETS} PRIVATE ${VLCQT_CORE} Qt4::QtGui)
+
 ELSE()
-    TARGET_LINK_LIBRARIES(${VLCQT_WIDGETS} PRIVATE ${VLCQT_CORE} Qt5::Widgets)
+    TARGET_LINK_LIBRARIES(${VLCQT_WIDGETS} PRIVATE ${VLCQT_CORE} Qt${QT_VERSION_MAJOR}::Widgets)
 ENDIF()
 
 IF(${CMAKE_SYSTEM_NAME} MATCHES "Linux" AND WITH_X11)

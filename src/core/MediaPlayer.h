@@ -28,8 +28,10 @@
 #include "Config.h"
 #include "Enums.h"
 #include "SharedExportCore.h"
+#include "AudioDevice.h"
 
 class VlcAudio;
+class AudioDevice;
 class VlcEqualizer;
 class VlcInstance;
 class VlcMedia;
@@ -91,6 +93,7 @@ public:
         \return equalizer (VlcEqualizer *)
     */
     VlcEqualizer *equalizer() const;
+    AudioDevice *audioDevice() const;
 #endif
 
     /*!
@@ -363,6 +366,7 @@ private:
     VlcVideo *_vlcVideo;
 #if LIBVLC_VERSION >= 0x020200
     VlcEqualizer *_vlcEqualizer;
+    AudioDevice *_audioDevice;
 #endif
 
     VlcVideoDelegate *_videoWidget;

@@ -1,6 +1,7 @@
 /****************************************************************************
 * VLC-Qt - Qt and libvlc connector library
 * Copyright (C) 2015 Tadej Novak <tadej@tano.si>
+* 2021 Andry <i@andry.io>
 *
 * This library is free software: you can redistribute it and/or modify
 * it under the terms of the GNU Lesser General Public License as published
@@ -80,7 +81,8 @@ void VlcWidgetSeekProgress::wheelEvent(QWheelEvent *event)
     if (!_vlcMediaPlayer)
         return;
 
-    if (event->delta() > 0)
+    /// todo: delta ??? now set pixelDelta
+    if (event->pixelDelta().x() > 0)
         _vlcMediaPlayer->setTime(_vlcMediaPlayer->time() + _vlcMediaPlayer->length() * 0.01);
     else
         _vlcMediaPlayer->setTime(_vlcMediaPlayer->time() - _vlcMediaPlayer->length() * 0.01);

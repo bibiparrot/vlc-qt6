@@ -5,9 +5,7 @@ VLC-Qt can be built with any common compiler (g++, clang, MSVC, MinGW).
 Build files are generated using [CMake](http://www.cmake.org) (3.0.2 or later).
 
 All stable versions of VLC since 2.1 work with VLC-Qt.
-Qt 5 (version 5.5 or later recommende) is recommended as Qt 4 support is
-considered deprecated. Binaries will always be provided for latest Qt version
-released at the time of release.
+Qt 5/6
 
 **Make sure you have git submodules initialised or you may experience build issues.**
 
@@ -31,6 +29,12 @@ Extra platform specific flags:
 
 Building in separate `build` directory is recommended.
 There is a `test` target to run automatic tests for the library.
+
+set -D
+-DCMAKE_PREFIX_PATH="/<qt_path>/Qt/6.0.1/clang_64(or othher)/;/<VLC_path_>/" // example for macos /Applications/VLC.app/Contents/MacOS
+-DLIBVLC_BIN_DIR="/<VLC_path_>/"
+-DCMAKE_INSTALL_PREFIX="/<folder for lib sdk>"
+
 
 ## Platform specific instructions
 ### macOS

@@ -1,6 +1,7 @@
 /****************************************************************************
 * VLC-Qt - Qt and libvlc connector library
 * Copyright (C) 2012 Tadej Novak <tadej@tano.si>
+* 2021 Andry <i@andry.io>
 *
 * This library is free software: you can redistribute it and/or modify
 * it under the terms of the GNU Lesser General Public License as published
@@ -24,7 +25,7 @@ QStringList VlcCommon::args()
 
     QString args = qgetenv("VLC_ARGS");
     if (!args.isEmpty())
-        args_list << args.split(" ", QString::SkipEmptyParts);
+        args_list << args.split(" ", Qt::SkipEmptyParts);
     else {
         args_list << "--intf=dummy"
                   << "--no-media-library"

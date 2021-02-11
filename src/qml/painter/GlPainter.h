@@ -36,7 +36,7 @@
     #include <QtGui/QOpenGLFunctions>
 #endif
 
-#include "core/VideoFrame.h"
+// old #include "core/VideoFrame.h"
 
 class GlPainter
 {

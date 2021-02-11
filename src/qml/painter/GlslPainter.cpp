@@ -22,7 +22,7 @@
 #include <QtGui/QOpenGLFunctions>
 #include <QtGui/QOpenGLShaderProgram>
 
-#include "core/VideoFrame.h"
+// old #include "core/VideoFrame.h"
 #include "qml/painter/GlslPainter.h"
 
 GlslPainter::GlslPainter()
